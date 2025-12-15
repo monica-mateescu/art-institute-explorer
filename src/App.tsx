@@ -1,17 +1,24 @@
-import { Routes, Route } from "react-router";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router";
 import { MainLayout } from "./layouts";
-import { Home } from "./pages";
-import Gallery from "./pages/Gallery";
+import { Home, Gallery } from "./pages";
+import { getArtworks } from "./data";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<Home />} loader={getArtworks} />
+      <Route path="gallery" element={<Gallery />} />
+    </Route>
+  )
+);
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
-        <Route path="gallery" element={<Gallery />} />
-      </Route>
-    </Routes>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
