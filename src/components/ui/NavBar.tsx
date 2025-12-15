@@ -25,7 +25,9 @@ const NavBar = () => {
           </svg>
         </label>
       </div>
-      <div className="mx-2 flex-1 px-2">Art Institute Explorer</div>
+      <div className="mx-2 flex-1 px-2 font-bold text-shadow-lg">
+        Art Institute Explorer
+      </div>
       <div className="hidden flex-none lg:block">
         <ul className="menu menu-horizontal">
           {menuList.map((item) => (
