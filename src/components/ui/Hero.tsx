@@ -1,9 +1,13 @@
+import heroImage from "../../assets/hero.jpg";
+
 const Hero = () => {
   return (
     <header
       className="hero min-h-150"
       style={{
-        backgroundImage: "url(./src/assets/hero.jpg)",
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="hero-overlay"></div>
