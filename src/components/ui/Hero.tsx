@@ -13,11 +13,14 @@ const Hero = () => {
       <div className="hero-overlay"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="max-w-md">
-          <h1 className="mb-5 text-xl font-bold">
-            Welcome to the Art Institute Explorer
+          <h1 className="mb-5 text-md font-bold">
+            Discover, admire, and save your favorite artworks from the museum’s
+            collection.
           </h1>
 
-          <button className="btn btn-primary">See Featured Artworks</button>
+          <a href="#featured-artworks" className="btn btn-primary">
+            See Artworks
+          </a>
         </div>
       </div>
     </header>

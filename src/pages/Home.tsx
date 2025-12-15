@@ -1,10 +1,17 @@
-import { Hero } from "../components";
+import { useLoaderData } from "react-router";
+import { Hero, ArtworksList } from "../components";
+import type { Artworks } from "../types";
 
 const Home = () => {
+  const initialData = useLoaderData<Artworks>();
+  const artworks = initialData.data;
+  const imgUrl = initialData.config.iiif_url;
   return (
     <>
       <Hero />
-      <main></main>
+      <main className="p-15 mx-auto">
+        <ArtworksList artworks={artworks} imgUrl={imgUrl} />
+      </main>
     </>
   );
 };
