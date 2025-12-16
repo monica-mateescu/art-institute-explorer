@@ -3,7 +3,7 @@ import { menuList } from "../../utils";
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-300 shadow-lg w-full">
+    <div className="navbar shadow-lg w-full">
       <div className="flex-none lg:hidden">
         <label
           htmlFor="my-drawer-2"
