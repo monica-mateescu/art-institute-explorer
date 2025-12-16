@@ -1,17 +1,22 @@
-import type { Artwork } from "../../types";
+import type { Artwork, GalleryType } from "../../types";
 import ArtworkCard from "../cards/ArtworkCard";
 
-const ArtworksList = ({
-  artworks,
-  imgUrl,
-}: {
-  artworks: Artwork[];
+type ArtworksListProps = {
+  artworks: Artwork[] | GalleryType[];
   imgUrl: string;
-}) => {
+  onRemove?: (id: number) => void;
+};
+
+const ArtworksList = ({ artworks, imgUrl, onRemove }: ArtworksListProps) => {
   return (
     <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
       {artworks?.map((artwork) => (
-        <ArtworkCard key={artwork.id} artwork={artwork} imgUrl={imgUrl} />
+        <ArtworkCard
+          key={artwork.id}
+          artwork={artwork}
+          imgUrl={imgUrl}
+          onRemove={onRemove}
+        />
       ))}
     </div>
   );

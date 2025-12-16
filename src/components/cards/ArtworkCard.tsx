@@ -1,23 +1,28 @@
 import { useState } from "react";
-import type { Artwork } from "../../types";
-import {
-  existsInStorage,
-  saveToStorage,
-  removeFromStorage,
-} from "../../utils/storage";
+import type { Artwork, GalleryType } from "../../types";
+import { existsInStorage, saveToStorage } from "../../utils/storage";
 
 const ArtworkCard = ({
   artwork,
   imgUrl,
+  onRemove,
 }: {
-  artwork: Artwork;
+  artwork: Artwork | GalleryType;
   imgUrl: string;
+  onRemove?: (id: number) => void;
 }) => {
   const [exists, setExists] = useState(() => existsInStorage(artwork.id));
+  const { id, title, artist_title } = artwork;
+  const imageUrl =
+    "image_url" in artwork && artwork.image_url
+      ? artwork.image_url
+      : "image_id" in artwork && artwork.image_id
+      ? `${imgUrl}/${artwork?.image_id}/full/200,/0/default.jpg`
+      : "";
 
   const handleClick = () => {
     if (exists) {
-      removeFromStorage(artwork.id);
+      onRemove?.(id);
       setExists(false);
     } else {
       saveToStorage({
@@ -30,17 +35,12 @@ const ArtworkCard = ({
     }
   };
 
-  const { id, title, artist_title, image_id } = artwork;
-  const imageUrl = image_id
-    ? `${imgUrl}/${image_id}/full/200,/0/default.jpg`
-    : "";
-
   return (
-    <div className="card w-96 shadow-lg">
+    <div className="card w-96 mb-4 shadow-sm">
       <figure className="aspect-4/3">
-        {image_id && (
+        {imageUrl && (
           <img
-            src={`${imgUrl}/${image_id}/full/200,/0/default.jpg`}
+            src={imageUrl}
             alt={title}
             className="object-center h-full w-full"
           />

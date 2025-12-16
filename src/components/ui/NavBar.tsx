@@ -3,7 +3,7 @@ import { menuList } from "../../utils";
 
 const NavBar = () => {
   return (
-    <div className="navbar shadow-lg w-full">
+    <div className="navbar shadow-sm w-full">
       <div className="flex-none lg:hidden">
         <label
           htmlFor="my-drawer-2"
@@ -26,7 +26,7 @@ const NavBar = () => {
         </label>
       </div>
       <div className="mx-2 flex-1 px-2 font-bold text-shadow-lg">
-        Art Institute Explorer
+        <NavLink to="/">Art Institute Explorer</NavLink>
       </div>
       <div className="hidden flex-none lg:block">
         <ul className="menu menu-horizontal">
