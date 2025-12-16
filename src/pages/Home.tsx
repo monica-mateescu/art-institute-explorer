@@ -1,12 +1,14 @@
 import { useLoaderData, Form } from "react-router";
-
-import { ArtworksList } from "../components";
+import { ArtworksList, Pagination } from "../components";
 import type { Artworks } from "../types";
 
 const Home = () => {
   const initialData = useLoaderData<Artworks>();
   const artworks = initialData.data;
   const imgUrl = initialData.config.iiif_url;
+
+  const pagination = initialData.pagination;
+
   return (
     <main className="p-15 mx-auto">
       <section className="mb-10">
@@ -28,7 +30,11 @@ const Home = () => {
         </Form>
       </section>
       <section>
+        <p className="text-right text-xs text-neutral-400 font-semibold mb-5">
+          {pagination.total} results
+        </p>
         <ArtworksList artworks={artworks} imgUrl={imgUrl} />
+        <Pagination pagination={pagination} />
       </section>
     </main>
   );
