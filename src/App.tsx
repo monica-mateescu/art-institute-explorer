@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router";
 import { MainLayout } from "./layouts";
-import { Home, Gallery } from "./pages";
+import { Home, Gallery, NotFound } from "./pages";
 import { getArtworks } from "./data";
 
 const router = createBrowserRouter(
@@ -17,6 +17,7 @@ const router = createBrowserRouter(
     >
       <Route index element={<Home />} loader={getArtworks} />
       <Route path="gallery" element={<Gallery />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
