@@ -31,7 +31,6 @@ export const getArtworks = async ({
   const resData = await res.json();
 
   const { data, error, success } = ArtworksSchema.safeParse(resData);
-  console.log(data);
 
   if (!success) throw new Error(z.prettifyError(error));
 
