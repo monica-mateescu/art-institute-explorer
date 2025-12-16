@@ -13,7 +13,7 @@ export const getArtworks = async ({
   const fields =
     url.searchParams.get("fields") ?? "id,title,artist_title,image_id";
   const page = url.searchParams.get("page") || "1";
-  const limit = url.searchParams.get("limit") || "15";
+  const limit = url.searchParams.get("limit") || "16";
 
   const endpoint = q ? "/artworks/search" : "/artworks";
   const params = new URLSearchParams({
