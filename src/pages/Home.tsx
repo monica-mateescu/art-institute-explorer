@@ -5,9 +5,9 @@ import type { Artworks } from "../types";
 const Home = () => {
   const initialData = useLoaderData<Artworks>();
   const artworks = initialData.data;
-  const imgUrl = initialData.config.iiif_url;
+  const imgUrl = initialData.config?.iiif_url ?? "";
 
-  const pagination = initialData.pagination;
+  const pagination = initialData.pagination ?? "";
 
   return (
     <main className="p-15 mx-auto">
@@ -30,11 +30,14 @@ const Home = () => {
         </Form>
       </section>
       <section>
-        <p className="text-right text-xs text-neutral-400 font-semibold mb-5">
-          {pagination.total} results
-        </p>
+        {pagination && (
+          <p className="text-right text-xs text-neutral-400 font-semibold mb-5">
+            {pagination.total} results
+          </p>
+        )}
+
         <ArtworksList artworks={artworks} imgUrl={imgUrl} />
-        <Pagination pagination={pagination} />
+        {pagination && <Pagination pagination={pagination} />}
       </section>
     </main>
   );
