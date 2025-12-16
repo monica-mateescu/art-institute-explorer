@@ -51,7 +51,10 @@ const ArtworkCard = ({
         <h2 className="card-title text-sm">{title}</h2>
         <h3 className="text-neutral-400">{artist_title ?? "Artist unknown"}</h3>
         <div className="card-actions justify-end">
-          <button className="btn btn-outline btn-primary" onClick={handleClick}>
+          <button
+            className="btn btn-outline btn-primary btn-sm"
+            onClick={handleClick}
+          >
             {exists ? "Remove from gallery" : "Save to gallery"}
           </button>
         </div>
