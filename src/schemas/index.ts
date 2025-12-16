@@ -1,6 +1,6 @@
 import { z } from "zod/v4";
 
-const PaginationSchema = z.object({
+export const PaginationSchema = z.object({
   total: z.int(),
   limit: z.int(),
   offset: z.int().default(0),
