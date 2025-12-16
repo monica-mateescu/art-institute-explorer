@@ -25,7 +25,7 @@ const NavBar = () => {
           </svg>
         </label>
       </div>
-      <div className="mx-2 flex-1 px-2 font-bold text-shadow-lg">
+      <div className="mx-2 flex-1 px-2 font-semibold text-xl text-shadow-sm">
         <NavLink to="/">Art Institute Explorer</NavLink>
       </div>
       <div className="hidden flex-none lg:block">

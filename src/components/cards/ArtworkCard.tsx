@@ -37,12 +37,12 @@ const ArtworkCard = ({
 
   return (
     <div className="card w-96 mb-4 shadow-sm">
-      <figure className="aspect-4/3">
+      <figure>
         {imageUrl && (
           <img
             src={imageUrl}
             alt={title}
-            className="object-center h-full w-full"
+            className="object-cover h-80 w-full"
           />
         )}
       </figure>
