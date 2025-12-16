@@ -36,7 +36,7 @@ const ArtworkCard = ({
   };
 
   return (
-    <div className="card w-96 mb-4 shadow-sm">
+    <div className="card w-full mb-4 shadow-sm">
       <figure>
         {imageUrl && (
           <img
