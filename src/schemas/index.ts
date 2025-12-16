@@ -18,9 +18,18 @@ export const ArtworkSchema = z.object({
 });
 
 export const ArtworksSchema = z.object({
-  pagination: PaginationSchema,
+  pagination: PaginationSchema.optional(),
   data: z.array(ArtworkSchema).default([]),
-  config: z.object({
-    iiif_url: z.url(),
-  }),
+  config: z
+    .object({
+      iiif_url: z.url(),
+    })
+    .optional(),
+});
+
+export const GallerySchema = z.object({
+  id: z.number(),
+  title: z.string(),
+  artist_title: z.nullable(z.string()),
+  image_url: z.url(),
 });
