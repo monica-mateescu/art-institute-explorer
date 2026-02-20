@@ -22,7 +22,7 @@ Check out the live version of the project here: [Art Institute Explorer Live](ht
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies
 
 - React  
 - TypeScript  
